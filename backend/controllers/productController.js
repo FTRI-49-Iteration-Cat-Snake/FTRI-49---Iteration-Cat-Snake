@@ -27,12 +27,29 @@ productController.addProduct = async (req, res, next) => {
 }
 
 productController.removeProduct = async (req, res, next) => {
+
   try {
-    await Product.deleteOne(req.body);
+    await Product.findOneAndDelete(req.body);
     res.json('Product deleted')
   } catch (err) {
     return next({
       message: 'error in addProducts: '+ err,
+      log: err,
+    })
+  }
+}
+
+productController.updatePrice = async (req, res, next) => {
+  console.log(req.body)
+  try {
+    
+    const condition = {_id: req.body._id};
+    const update = {price: req.body.price}
+    await Product.findOneAndUpdate(condition, update);
+    res.json('Price changed to ' + update.price)
+  } catch (err) {
+    return next({
+      message: 'error in updatePrice: '+ err,
       log: err,
     })
   }
@@ -46,7 +63,7 @@ productController.updateStock = async (req, res, next) => {
     res.json('Stock changed to ' + update.stock)
   } catch (err) {
     return next({
-      message: 'error in addProducts: '+ err,
+      message: 'error in updateStock: '+ err,
       log: err,
     })
   }

@@ -16,7 +16,7 @@ app.use('/api', productsRoutes);
 
 
 app.use((req, res) =>
-  res.status(404).send("This is not the page you're looking for...")
+  res.status(404).send("This is not the page you are looking for...")
 );
 
 app.use((err, req, res, next) => {
@@ -31,5 +31,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`App listening on port ${port}`);
 });

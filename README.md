@@ -15,6 +15,7 @@ In order to free port 5000 for use, to turn off AirPlay when using a Mac.
 ## Usage
 
 - Create a MongoDB database and obtain your `MongoDB URI` - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
+- To obtain starter data, visit https://fakestoreapi.com/products and copy the sample data into your database. Then add the fields {stock: 10, num_sold: 0} to all existing data. Any items added through the admin panel will automatically contain these fields.
 
 ### Env Variables
 
