@@ -13,7 +13,6 @@ import Cart from './components/Cart/Cart'
 import SigninForm from './components/Home/SigninForm';
 import SignupForm from './components/Home/SignupForm';
 
-
 import * as authService from '../src/services/authService'
 import './App.css';
 import AdminPanel from './components/Admin/AdminPanel';
@@ -84,13 +83,13 @@ In-Source Test
 =======================================================*/
 
 if (import.meta.vitest) {
-  const { it, expect, describe } = import.meta.vitest
+  const { describe, it, expect, beforeEach, afterEach, vi } = import.meta.vitest
 
-  describe('App', () => {
+  describe('App - confirm elements render', () => {
 
     // Render Dom before each test; Clean up DOM after each test
     beforeEach(() => render(<Router><App/></Router>));
-    afterAll(()=>cleanup())
+    afterEach(()=>cleanup())
   
     it('renders the App component', () => {
       const body = document.body
@@ -102,11 +101,27 @@ if (import.meta.vitest) {
       expect(nav).toBeInTheDocument();
     });
 
-    it('renders login button', ()=>{
+    it('renders all buttons on page', ()=>{
       const loginButton = screen.getByRole('button', {name: /log in/i} )
+      const signUpButton = screen.getByRole('button', {name: /Sign up/i} )
+      
       expect(loginButton).toBeInTheDocument()
+      expect(signUpButton).toBeInTheDocument()
+    })
+
+    it('page re renders after the user logs in', ()=>{
+
     })
   
     screen.debug()
+  })
+
+  describe('App - confirm buttons function ', ()=>{
+
+  // Render Dom before each test; Clean up DOM after each test
+  beforeEach(() => render(<Router><App/></Router>));
+  afterEach(()=>cleanup())    
+
+
   })
 }
