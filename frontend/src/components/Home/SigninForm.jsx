@@ -73,7 +73,7 @@ const SigninForm = (props) => {
                 />
               </div>
               <div className = {styles.inputContainer}>
-                <button>Log In</button>
+                <button >Log In</button>
               </div>
             </form>
           </div>
