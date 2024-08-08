@@ -1,0 +1,45 @@
+.adminPanel {
+    height: 100%;
+        min-width: fit-content;
+    width: 90%;
+
+    margin: 3rem;
+    /* background: gray; */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border: 2px solid black;
+}
+
+table {border: none;}
+
+.adminPanel img {
+    width: 40px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    object-fit: contain;
+}
+
+.adminPanelItems {
+
+}
+
+.adminPanelItems tr:nth-child(odd) {
+background: white;
+}
+
+.adminPanelItems tr:nth-child(even) {
+    background: lightgrey;
+    }
+.adminPanel button {
+    border: none;
+}
+
+.btnSave {
+    background: green;
+    color: white;
+}
+.btnDelete {
+    background: red;
+    color: white;
+}

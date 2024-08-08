@@ -12,6 +12,7 @@ import SignupForm from './components/Home/SignupForm';
 
 import * as authService from '../src/services/authService'
 import './App.css';
+import AdminPanel from './components/Admin/AdminPanel';
 
 
 export const AuthedUserContext = createContext(null);
@@ -46,6 +47,7 @@ function App() {
               <>
                 <Route path='/marketplace' element={<Marketplace name={'Marketplace'} />} />
                 <Route path='/cart' element={<Cart />} />
+                <Route path='/admin' element={<AdminPanel />} />
               </> 
             ) : (
               <>
