@@ -117,11 +117,4 @@ if (import.meta.vitest) {
     screen.debug()
   })
 
-  // describe('App - confirm buttons function ', ()=>{
-
-  //   // Render Dom before each test; Clean up DOM after each test
-  //   beforeEach(() => render(<Router><App/></Router>));
-  //   afterEach(()=>cleanup())    
-
-  // })
 }
