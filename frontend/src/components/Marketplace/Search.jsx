@@ -1,9 +1,7 @@
-// Search.jsx
-
 import React, { useState } from 'react';
 import './Search.css';
 
-export default function Search({ allProducts, displayedProducts, setDisplayedProducts }) { // Vince implemented
+export default function Search({ allProducts, setDisplayedProducts }) {
     const [search, setSearch] = useState('');
 
     const handleSearch = (e) => {
@@ -11,12 +9,12 @@ export default function Search({ allProducts, displayedProducts, setDisplayedPro
         setSearch(query);
 
         if (query === '') {
-            setDisplayedProducts(allProducts); // Vince implemented
+            setDisplayedProducts(allProducts);
             return;
         }
 
         const results = allProducts.filter(product => 
-            product.props.title.toLowerCase().includes(query.toLowerCase()) // Vince implemented
+            product.props.title.toLowerCase().includes(query.toLowerCase())
         );
 
         if (results.length === 0) {

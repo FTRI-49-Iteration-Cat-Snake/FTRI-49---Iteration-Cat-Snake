@@ -44,7 +44,7 @@ function App() {
           <Routes>
             {user ?  (
               <>
-                <Route path='/marketplace' element={<Marketplace />} />
+                <Route path='/marketplace' element={<Marketplace name={'Marketplace'} />} />
                 <Route path='/cart' element={<Cart />} />
               </> 
             ) : (
@@ -65,41 +65,29 @@ function App() {
 export default App;
 
 
-// In-Source Test
-if (import.meta.vitest) {
-  const { it, expect } = import.meta.vitest
+/* =======================================================
+In-Source Test
+=======================================================*/
 
+if (import.meta.vitest) {
+  const { it, expect, describe } = import.meta.vitest
 
   describe('App', () => {
 
-    let container = null;
-
-    beforeEach(() => {
-      // Set up a DOM element as a render target
-      container = document.createElement('div');
-      container.setAttribute('id', 'root');
-      document.body.appendChild(container);
-    });
+    // Set up a DOM element as a render target
+    beforeEach(() => render(<Router><App/></Router>));
+    afterAll(()=>cleanup())
   
     it('renders the App component', () => {
-      const { container } = render(
-        <Router>
-          <App />
-        </Router>,
-        { container: document.getElementById('root') } // Specify the container
-      );
+      const body = document.body
+      expect(body).toBeInTheDocument();
     });
 
     it('renders the navigation bar', () => {
-      const { container } = render(
-        <Router>
-          <App />
-        </Router>,
-        { container: document.getElementById('root') } // Specify the container
-      );
-      expect(screen.getByRole('navigation')).toBeInTheDocument();
+      const nav = screen.getByRole('navigation')
+      expect(nav).toBeInTheDocument();
     });
   
-
+    screen.debug()
   })
 }
