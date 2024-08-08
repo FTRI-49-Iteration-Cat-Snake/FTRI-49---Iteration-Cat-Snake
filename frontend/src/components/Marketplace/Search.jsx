@@ -3,6 +3,11 @@ Importing necessary tools
 =======================================================*/
 
 import React, { useState } from 'react';
+
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { render, screen, cleanup } from '@testing-library/react';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import './Search.css';
 
 /* =======================================================
@@ -14,7 +19,7 @@ Helper functions
 Component
 =======================================================*/
 
-export default function Search({ allProducts, setDisplayedProducts }) {
+function Search({ allProducts, setDisplayedProducts }) {
     const [search, setSearch] = useState('');
 
     const handleSearch = (e) => {
@@ -50,6 +55,7 @@ export default function Search({ allProducts, setDisplayedProducts }) {
     );
 }
 
+export default Search;
 /* =======================================================
 In-Source Test
 =======================================================*/

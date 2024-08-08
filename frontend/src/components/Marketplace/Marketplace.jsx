@@ -16,8 +16,8 @@ import axios from 'axios';
 import Product from './Product.jsx';
 import Search from './Search.jsx';
 
+import { Routes, Route, useNavigate,  BrowserRouter as Router  } from 'react-router-dom';
 import { render, screen, cleanup } from '@testing-library/react';
-import { BrowserRouter as Router } from 'react-router-dom';
 // Importing CSS file
 import './Marketplace.css';
 
@@ -32,7 +32,7 @@ Component
 =======================================================*/
 
 // Defines our Marketplace function to be exported
-const Marketplace = () => {
+function Marketplace (){
     // Creates state array to store Product components
     const [displayedProducts, setDisplayedProducts] = useState([]);
     const [allProducts, setAllProducts] = useState([]); 

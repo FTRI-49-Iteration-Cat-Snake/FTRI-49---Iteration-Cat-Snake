@@ -1,7 +1,16 @@
+/* =======================================================
+Importing necessary tools
+=======================================================*/
+
 import React from 'react';
 import { useState } from 'react'
 import * as cartService from '../../services/cartService.js';
 import './Popup.css';
+
+import { Routes, Route, useNavigate, BrowserRouter as Router } from 'react-router-dom';
+import { render, screen, cleanup } from '@testing-library/react';
+
+
 
 
 /** 
@@ -68,11 +77,6 @@ const Product = (props) => {
                 )}
                 {isModalOpen && <div className='active' id='overlay' onClick={closeModal}></div>}
             </h4>
-          
-            
-
-
-
 
         </div>
     )

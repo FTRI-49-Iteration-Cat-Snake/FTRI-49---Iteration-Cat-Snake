@@ -1,3 +1,7 @@
+/* =======================================================
+Importing necessary tools
+=======================================================*/
+
 import { useState, createContext,useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { render, screen, cleanup } from '@testing-library/react';
@@ -12,10 +16,20 @@ import SignupForm from './components/Home/SignupForm';
 
 import * as authService from '../src/services/authService'
 import './App.css';
+import AdminPanel from './components/Admin/AdminPanel';
 
 
 export const AuthedUserContext = createContext(null);
 
+
+/* =======================================================
+Helper functions
+=======================================================*/
+
+
+/* =======================================================
+Component
+=======================================================*/
 
 function App() {
   
@@ -44,8 +58,9 @@ function App() {
           <Routes>
             {user ?  (
               <>
-                <Route path='/marketplace' element={<Marketplace name={'Marketplace'} />} />
+                <Route path='/marketplace' element={<Marketplace />} />
                 <Route path='/cart' element={<Cart />} />
+                <Route path='/admin' element={<AdminPanel />} />
               </> 
             ) : (
               <>
@@ -63,7 +78,6 @@ function App() {
 }
 
 export default App;
-
 
 /* =======================================================
 In-Source Test

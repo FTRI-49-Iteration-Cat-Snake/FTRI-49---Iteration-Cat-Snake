@@ -3,11 +3,14 @@ Imports
 =======================================================*/
 
 import { useState, createContext, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
 import * as authService from '../../services/authService'
 import * as cartService from '../../services/cartService'
 import styles from './Cart.module.css'
 import data from '../../../../testdb.json'
+import { Link, Routes, Route, useNavigate, BrowserRouter as Router } from 'react-router-dom';
+
+import { render, screen, cleanup } from '@testing-library/react';
+
 
 /* =======================================================
 Helper Functions
@@ -114,3 +117,7 @@ function Cart() {
 }
 
 export default Cart;
+
+/* =======================================================
+In-Source Test
+=======================================================*/
