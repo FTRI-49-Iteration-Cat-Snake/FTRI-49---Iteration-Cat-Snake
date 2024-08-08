@@ -89,3 +89,22 @@ export default Product;
 /* =======================================================
 In-Source Test
 =======================================================*/
+
+if (import.meta.vitest) {
+    const { describe, it, expect, beforeEach, afterEach, vi } = import.meta.vitest
+  
+    describe('App - confirm elements render', () => {
+  
+      // Render Dom before each test; Clean up DOM after each test
+      beforeEach(() => render(<Product/>));
+      afterEach(()=>cleanup())
+    
+      it('has a button called add to cart', () => {
+        const addToCart = screen.getByRole('button', {name: /add to cart/i} )
+        expect(addToCart).toBeInTheDocument();
+      });
+
+    
+      screen.debug()
+    })
+  }

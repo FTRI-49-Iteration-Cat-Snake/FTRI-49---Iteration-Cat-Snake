@@ -59,3 +59,8 @@ export default Search;
 /* =======================================================
 In-Source Test
 =======================================================*/
+
+
+if (import.meta.vitest) {
+    const { describe, it, expect, beforeEach, afterEach, vi } = import.meta.vitest
+}

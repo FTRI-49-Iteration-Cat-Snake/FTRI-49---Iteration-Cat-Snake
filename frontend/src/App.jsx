@@ -104,7 +104,7 @@ if (import.meta.vitest) {
 
     it('renders all buttons on page', ()=>{
       const loginButton = screen.getByRole('button', {name: /log in/i} )
-      const signUpButton = screen.getByRole('button', {name: /Sign up/i} )
+      const signUpButton = screen.getByRole('button', {name: /Sign uP/i} )
       
       expect(loginButton).toBeInTheDocument()
       expect(signUpButton).toBeInTheDocument()
@@ -116,5 +116,4 @@ if (import.meta.vitest) {
   
     screen.debug()
   })
-
 }
