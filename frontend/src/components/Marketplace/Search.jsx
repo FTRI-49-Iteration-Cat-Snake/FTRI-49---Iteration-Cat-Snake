@@ -1,5 +1,18 @@
+/* =======================================================
+Importing necessary tools
+=======================================================*/
+
 import React, { useState } from 'react';
 import './Search.css';
+
+/* =======================================================
+Helper functions
+=======================================================*/
+
+
+/* =======================================================
+Component
+=======================================================*/
 
 export default function Search({ allProducts, setDisplayedProducts }) {
     const [search, setSearch] = useState('');
@@ -36,3 +49,7 @@ export default function Search({ allProducts, setDisplayedProducts }) {
         </div>
     );
 }
+
+/* =======================================================
+In-Source Test
+=======================================================*/

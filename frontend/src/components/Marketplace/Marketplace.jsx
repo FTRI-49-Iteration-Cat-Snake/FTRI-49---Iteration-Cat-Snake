@@ -6,6 +6,10 @@
  * @exports Marketplace - Function to be used by other files
  */
 
+/* =======================================================
+Importing necessary tools
+=======================================================*/
+
 // Importing necessary tools
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -16,6 +20,16 @@ import { render, screen, cleanup } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 // Importing CSS file
 import './Marketplace.css';
+
+
+/* =======================================================
+Helper functions
+=======================================================*/
+
+
+/* =======================================================
+Component
+=======================================================*/
 
 // Defines our Marketplace function to be exported
 const Marketplace = () => {

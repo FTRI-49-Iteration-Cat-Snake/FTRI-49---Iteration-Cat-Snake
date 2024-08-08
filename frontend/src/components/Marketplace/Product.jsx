@@ -80,3 +80,8 @@ const Product = (props) => {
 
 // Exports the Product constructor
 export default Product;
+
+
+/* =======================================================
+In-Source Test
+=======================================================*/

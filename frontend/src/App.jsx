@@ -91,10 +91,6 @@ if (import.meta.vitest) {
     it('renders login button', ()=>{
       const loginButton = screen.getByRole('button', {name: /log in/i} )
       expect(loginButton).toBeInTheDocument()
-
-
-      // const button = screen.getByRole('button', { name: /log in/i });
-      // expect(button).toBeInTheDocument();
     })
   
     screen.debug()
