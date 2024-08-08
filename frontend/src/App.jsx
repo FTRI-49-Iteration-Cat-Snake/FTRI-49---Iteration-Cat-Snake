@@ -12,7 +12,6 @@ import SignupForm from './components/Home/SignupForm';
 
 import * as authService from '../src/services/authService'
 import './App.css';
-import AdminPanel from './components/Admin/AdminPanel';
 
 
 export const AuthedUserContext = createContext(null);
@@ -47,7 +46,6 @@ function App() {
               <>
                 <Route path='/marketplace' element={<Marketplace name={'Marketplace'} />} />
                 <Route path='/cart' element={<Cart />} />
-                <Route path='/admin' element={<AdminPanel />} />
               </> 
             ) : (
               <>
@@ -76,7 +74,7 @@ if (import.meta.vitest) {
 
   describe('App', () => {
 
-    // Set up a DOM element as a render target
+    // Render Dom before each test; Clean up DOM after each test
     beforeEach(() => render(<Router><App/></Router>));
     afterAll(()=>cleanup())
   
