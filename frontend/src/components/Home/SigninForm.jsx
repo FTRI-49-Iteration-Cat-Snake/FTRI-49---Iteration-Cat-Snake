@@ -1,10 +1,24 @@
+/* =======================================================
+Importing necessary tools
+=======================================================*/
+
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import * as authService from '../../services/authService'
+import { Link, Routes, Route, useNavigate, BrowserRouter as Router } from 'react-router-dom';
+import { render, screen, cleanup } from '@testing-library/react';
+
 
 import styles from "./Form.module.css"
 
-const SigninForm = (props) => {
+/* =======================================================
+Helper functions
+=======================================================*/
+
+/* =======================================================
+Component
+=======================================================*/
+
+function SigninForm(props){
     const navigate = useNavigate();
     const [message, setMessage] = useState(['']);
     const [formData, setFormData] = useState({
@@ -73,7 +87,7 @@ const SigninForm = (props) => {
                 />
               </div>
               <div className = {styles.inputContainer}>
-                <button>Log In</button>
+                <button >Log In</button>
               </div>
             </form>
           </div>
@@ -87,3 +101,7 @@ const SigninForm = (props) => {
   };
   
   export default SigninForm;
+
+  /* =======================================================
+In-Source Test
+=======================================================*/

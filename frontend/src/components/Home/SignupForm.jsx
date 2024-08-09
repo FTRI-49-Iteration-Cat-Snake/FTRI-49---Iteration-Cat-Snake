@@ -1,10 +1,25 @@
+/* =======================================================
+Importing necessary tools
+=======================================================*/
+
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {  } from 'react-router-dom';
 import * as authService from '../../services/authService';
+import { Link, useNavigate, Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import { render, screen, cleanup } from '@testing-library/react';
+
+/* =======================================================
+Helper functions
+=======================================================*/
+
+/* =======================================================
+Component
+=======================================================*/
+
 
 import styles from "./Form.module.css"
 
-const SignupForm = (props) => {
+function SignupForm(props){
   const navigate = useNavigate();
   const [message, setMessage] = useState(['']);
   const [formData, setFormData] = useState({
@@ -101,3 +116,7 @@ const SignupForm = (props) => {
 };
 
 export default SignupForm;
+
+/* =======================================================
+In-Source Test
+=======================================================*/

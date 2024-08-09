@@ -1,6 +1,24 @@
+/* =======================================================
+Importing necessary tools
+=======================================================*/
+
 import styles from './Admin.module.css';
 import axios from 'axios';
 import { useState } from 'react';
+
+import { render, screen, cleanup } from '@testing-library/react';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+/* =======================================================
+Helper functions
+=======================================================*/
+
+
+
+/* =======================================================
+Component
+=======================================================*/
+
 
 function AdminAddItem({update, setUpdate}) {
   const [title, setTitle] = useState('');
@@ -101,3 +119,7 @@ function AdminAddItem({update, setUpdate}) {
 }
 
 export default AdminAddItem;
+
+/* =======================================================
+In-Source Test
+=======================================================*/

@@ -1,6 +1,22 @@
+/* =======================================================
+Importing necessary tools
+=======================================================*/
+
 import { useState } from 'react';
 import styles from './Admin.module.css';
 import axios from 'axios';
+
+import { Routes, Route, useNavigate, BrowserRouter as Router } from 'react-router-dom';
+import { render, screen, cleanup } from '@testing-library/react';
+
+/* =======================================================
+Helper functions
+=======================================================*/
+
+
+/* =======================================================
+Component
+=======================================================*/
 
 function AdminItem(props) {
   const [stock, setStock] = useState(props.stock);
@@ -104,6 +120,10 @@ function AdminItem(props) {
 }
 
 export default AdminItem;
+
+/* =======================================================
+In-Source Test
+=======================================================*/
 
 // key = {crypto.randomUUID()}
 // product_id={arr[i]._id}

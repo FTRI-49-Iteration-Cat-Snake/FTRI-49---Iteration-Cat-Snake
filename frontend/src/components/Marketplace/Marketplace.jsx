@@ -6,6 +6,10 @@
  * @exports Marketplace - Function to be used by other files
  */
 
+/* =======================================================
+Importing necessary tools
+=======================================================*/
+
 // Importing necessary tools
 import { InputGroup , Form, useState, useEffect } from 'react';
 import axios from 'axios';
@@ -13,20 +17,30 @@ import Product from './Product.jsx';
 import Search from './Search.jsx';
 import Pagination from './Pagination.jsx';
 
+import { Routes, Route, useNavigate,  BrowserRouter as Router  } from 'react-router-dom';
+import { render, screen, cleanup } from '@testing-library/react';
 // Importing CSS file
 import './Marketplace.css';
 
+/* =======================================================
+Helper functions
+=======================================================*/
+
+
+/* =======================================================
+Component
+=======================================================*/
+
 // Defines our Marketplace function to be exported
-const Marketplace = () => {
-    // Creates state array to store Product components
-    const [displayedProducts, setDisplayedProducts] = useState([]);
-    const [allProducts, setAllProducts] = useState([]); // Vince implemented
-    const [currentPage, setCurrentPage] = useState(1);
-    const [productsPerPage, setProductPerPage] = useState(8);
-
-
-    // Function that sends a "GET" request to the DB to fetch product data
-    const getComponents = () => {
+function Marketplace (){
+        // Creates state array to store Product components
+        const [displayedProducts, setDisplayedProducts] = useState([]);
+        const [allProducts, setAllProducts] = useState([]); // Vince implemented
+        const [currentPage, setCurrentPage] = useState(1);
+        const [productsPerPage, setProductPerPage] = useState(8);
+        
+     // Function that sends a "GET" request to the DB to fetch product data
+     const getComponents = () => {
         axios.get('/api/products')
             .then(res => {
                 // Function that changes the state of products array
@@ -93,12 +107,17 @@ In-Source Test
 =======================================================*/
 
 if (import.meta.vitest) {
-    const { it, expect } = import.meta.vitest
+    const { it, expect, describe } = import.meta.vitest
 
-if (import.meta.vitest) {
-        const displayedProductsArray = container.querySelector('.product-display').childNodes;
-        expect(Array.isArray(Array.from(displayedProductsArray))).toBe(true);
-    }
-    // Print the rendered output to the console for debugging
-  screen.debug();
+    // Render Dom before each test; Clean up DOM after each test
+    beforeEach(() => render(<Router><Marketplace/></Router>));
+    afterAll(()=>cleanup())
+
+    it("Market Component Renders", ()=>{
+        const market = document.getElementsByName('Marketplace')
+        expect(market).not.toBeNull()
+    })
+
+    screen.debug()
+
 }
