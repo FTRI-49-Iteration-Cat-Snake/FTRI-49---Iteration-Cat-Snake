@@ -11,10 +11,11 @@ Importing necessary tools
 =======================================================*/
 
 // Importing necessary tools
-import { useState, useEffect } from 'react';
+import { InputGroup , Form, useState, useEffect } from 'react';
 import axios from 'axios';
 import Product from './Product.jsx';
 import Search from './Search.jsx';
+import Pagination from './Pagination.jsx';
 
 import { Routes, Route, useNavigate,  BrowserRouter as Router  } from 'react-router-dom';
 import { render, screen, cleanup } from '@testing-library/react';
@@ -33,18 +34,21 @@ Component
 
 // Defines our Marketplace function to be exported
 function Marketplace (){
-    // Creates state array to store Product components
-    const [displayedProducts, setDisplayedProducts] = useState([]);
-    const [allProducts, setAllProducts] = useState([]); 
-    // Function that sends a "GET" request to the DB to fetch product data
-    const getComponents = () => {
+        // Creates state array to store Product components
+        const [displayedProducts, setDisplayedProducts] = useState([]);
+        const [allProducts, setAllProducts] = useState([]); // Vince implemented
+        const [currentPage, setCurrentPage] = useState(1);
+        const [productsPerPage, setProductPerPage] = useState(8);
+        
+     // Function that sends a "GET" request to the DB to fetch product data
+     const getComponents = () => {
         axios.get('/api/products')
             .then(res => {
                 // Function that changes the state of products array
 
                 const newProducts = res.data.map(product => (
                     <Product
-                        key={crypto.randomUUID()} 
+                        key={crypto.randomUUID()} // Vince implemented
                         product_id={product._id}
                         id={product.id}
                         title={product.title}
@@ -53,10 +57,11 @@ function Marketplace (){
                         description={product.description}
                         image={product.image}
                         rating={product.rating}
+                        stock={product.stock}
                     />
                 ));
-                setAllProducts(newProducts); 
-                setDisplayedProducts(newProducts); 
+                setAllProducts(newProducts); // Vince implemented
+                setDisplayedProducts(newProducts); // Vince implemented
             })
             .catch(e => {
                 alert(e);
@@ -68,20 +73,28 @@ function Marketplace (){
         getComponents();
         console.log("hit");
     }, []);
+    const lastPostIndex =  currentPage * productsPerPage;
+    const firstPostIndex = lastPostIndex - productsPerPage;
+    const currentPost =   displayedProducts.slice(firstPostIndex, lastPostIndex);
 
     // Returns a styled div containing the rendered products
     return (
         <div>
             <Search 
-                allProducts={allProducts} 
+                allProducts={allProducts} // Vince implemented
                 displayedProducts={displayedProducts} 
                 setDisplayedProducts={setDisplayedProducts} 
                 getComponents={getComponents} 
-                name={'search'}
             />
             <div className="product-display">
-                {displayedProducts}
+                {currentPost}
             </div>
+            <Pagination
+                totalProducts={displayedProducts.length}
+                productsPerPage={productsPerPage}
+                setCurrentPage={setCurrentPage}
+                currentPage={currentPage}
+/>
         </div>
     );
 };

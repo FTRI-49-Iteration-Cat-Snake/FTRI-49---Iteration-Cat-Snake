@@ -63,4 +63,20 @@ In-Source Test
 
 if (import.meta.vitest) {
     const { describe, it, expect, beforeEach, afterEach, vi } = import.meta.vitest
+
+    describle('Search.jsx - confirming elements render', ()=>{
+        beforeEach(() =>{
+        // const mocksearch = {
+        //title ; 'test',
+        // }
+            render (<Search/>);
+    });
+        afterEach(()=> cleanup());
+
+        it('has an input field'), ()=>{
+            const searchbar = document.querySelector('input[type="search"]');
+            expect(searchbar).toBeInTheDocument();
+        }
+
+});
 }
