@@ -24,4 +24,6 @@ const  Pagination = ({totalProducts, productsPerPage, setCurrentPage, currentPag
   );
 }
 
+
 export default Pagination
+

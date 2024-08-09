@@ -34,7 +34,7 @@ Component
 function App() {
   
   const navigate = useNavigate();
-
+  const [enter, setEnter] = useState(false);
   const [user, setUser] = useState(authService.getUser()); // look for an active user
 
   const handleSignout = () => {
@@ -52,12 +52,12 @@ function App() {
   return (
     <>
       <AuthedUserContext.Provider value={user}>
-        <Landing />
+        <Landing enter={enter} setEnter={setEnter}/>
         {/* <Navbar handleSignout={handleSignout}/> */}
         <Navbar handleSignout={handleSignout}/>
         <div className="appContainer">
           <Routes>
-            {user ?  (
+            {user && enter ?  (
               <>
                 <Route path='/marketplace' element={<Marketplace />} />
                 <Route path='/cart' element={<Cart />} />

@@ -1,8 +1,8 @@
-import { useState } from 'react';
+
 import styles from './Landing.module.css';
 
-function Landing() {
-  const [enter, setEnter] = useState(false);
+function Landing({enter, setEnter}) {
+
 
   const images = [
     'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',

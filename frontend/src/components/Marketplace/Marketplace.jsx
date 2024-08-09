@@ -22,7 +22,6 @@ import { render, screen, cleanup } from '@testing-library/react';
 // Importing CSS file
 import './Marketplace.css';
 
-
 /* =======================================================
 Helper functions
 =======================================================*/
